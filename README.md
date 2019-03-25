@@ -12,3 +12,6 @@ show its prices across many multiple stores.
 Use `COOP-s` Api to get a Product
 Use Selenium to Fetch an Item from `Prisma`
 
+# Design Prototype 
+
+https://marvelapp.com/b766984
