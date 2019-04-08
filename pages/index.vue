@@ -17,6 +17,8 @@
                             outline
                             label="Your Product"
                             centered
+                            v-on:click=""
+
                     >
                     </v-text-field>
                 </v-card>
@@ -26,6 +28,14 @@
 </template>
 
 <script>
+    export default {
+        data() {
+            return {
 
-    export default {}
+            }
+        },
+        methods: {
+
+        }
+    }
 </script>
