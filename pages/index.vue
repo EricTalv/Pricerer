@@ -4,7 +4,7 @@
             grid-list-md
             v-bind:class="{ 'fill-height': fillHeight }"
             v-bind="CheckItemListVisibility">
-        <v-slide-y-transition>
+        <transition name="fade">
             <v-layout align-center justify-center>
                 <v-flex shrink>
                     <v-card flat>
@@ -28,7 +28,7 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </v-slide-y-transition>
+        </transition>
         <v-fade-transition>
             <v-layout
                     justify-center
