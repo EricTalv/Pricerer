@@ -25,7 +25,7 @@
         </v-layout>
         <v-layout
                 justify-center
-                v-if="showItemList"
+                v-if="ItemListVisible"
         >
             <v-flex xs2>
                 <v-card>
@@ -50,15 +50,23 @@
     export default {
         data() {
             return {
-                showItemList: false,
+                ItemListVisible: false,
             }
         },
         methods: {
             transitionToItems: function () {
-                if (!this.showItemList) {
-                     this.showItemList = true
+                if (!this.ItemListVisible) {
+                     this.ItemListVisible = true
                 } else {
-                    this.showItemList = false
+                    this.ItemListVisible = false
+                }
+            }
+        },
+
+        computed: {
+            CheckItemListVisibility() {
+                if (!this.ItemListVisible) {
+
                 }
             }
         }
