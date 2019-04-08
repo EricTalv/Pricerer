@@ -6,12 +6,26 @@
                     <v-card width="250px">
 
                         <v-flex headline>Pricerer</v-flex>
-                        <v-card-title>
-                            Pricerer
-                        </v-card-title>
-                        <v-card-text>
-                            The unworldly technology
-                        </v-card-text>
+
+                        <v-flex xs12 sm6 md3>
+                            <v-text-field
+                                    label="Outline"
+                                    outline
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm6 md3>
+                            <v-text-field
+                                    label="Outline"
+                                    outline
+                            ></v-text-field>
+                        </v-flex>
+                        <v-flex xs12 sm6 md3>
+                            <v-text-field
+                                    label="Outline"
+                                    outline
+                            ></v-text-field>
+                        </v-flex>
+
                     </v-card>
                 </v-layout>
             </v-flex>
