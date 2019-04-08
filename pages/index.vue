@@ -4,8 +4,8 @@
             grid-list-md
             v-bind:class="{ 'fill-height': fillHeight }"
             v-bind="CheckItemListVisibility">
-        <transition name="fade">
-            <v-layout align-center justify-center>
+        <transition-group name="flip-list" tag="div">
+            <v-layout key="a" align-center justify-center>
                 <v-flex shrink>
                     <v-card flat>
                         <v-card-title primary-title>
@@ -28,7 +28,7 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </transition>
+        </transition-group>
         <v-fade-transition>
             <v-layout
                     justify-center
@@ -83,5 +83,7 @@
 </script>
 
 <style scoped>
-
+    .flip-list-move {
+        transition: transform 1s;
+    }
 </style>
