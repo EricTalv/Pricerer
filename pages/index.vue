@@ -1,5 +1,5 @@
 <template>
-    <v-container >
+    <v-container fluid fill-height>
         <v-layout column align-center justify-center>
             <v-flex shrink>
                 <v-card flat>
@@ -24,14 +24,19 @@
                 </v-card>
             </v-flex>
 
-            <v-flex>
-                <v-card>
-                    <v-card-text>
+            <v-layout align-center justify-center row reverse fill-height>
+                <v-flex>
+                    <v-card>
+                        <v-card-text>ITEM</v-card-text>
+                    </v-card>
+                    <v-card>
+                        <v-card-text>ITEM</v-card-text>
+                    </v-card>
+                </v-flex>
+            </v-layout>
 
-                    </v-card-text>
-                </v-card>
-            </v-flex>
         </v-layout>
+
     </v-container>
 </template>
 
@@ -49,3 +54,7 @@
         }
     }
 </script>
+
+<style scoped>
+
+</style>
