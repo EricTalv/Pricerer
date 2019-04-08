@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid grid-list-md>
+    <v-container fluid grid-list-md v-bind:class="{ active: isActive }">
         <v-layout align-center justify-center>
             <v-flex shrink>
                 <v-card flat>
@@ -51,6 +51,7 @@
         data() {
             return {
                 ItemListVisible: false,
+                isActive: true,
             }
         },
         methods: {
@@ -66,7 +67,7 @@
         computed: {
             CheckItemListVisibility() {
                 if (!this.ItemListVisible) {
-
+                    alert("not visible")
                 }
             }
         }
