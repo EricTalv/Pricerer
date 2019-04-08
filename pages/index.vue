@@ -4,11 +4,11 @@
             <v-flex shrink my-5>
                 <v-card flat>
                     <v-card-title primary-title>
-                        <div>
+                        <div class="text-xs-center">
                             <div class="headline">
                                 <u>Welcome To Pricerer</u>
                             </div>
-                            <div>1,000 miles of wonder</div>
+                            <div class="grey--text">Think More, Spend Less</div>
                         </div>
                     </v-card-title>
                     <br>
