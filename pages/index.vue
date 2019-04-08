@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid fill-height>
+    <v-container fluid grid-list-md>
         <v-layout column align-center justify-center>
             <v-flex shrink>
                 <v-card flat>
@@ -23,20 +23,24 @@
                     </v-text-field>
                 </v-card>
             </v-flex>
-
-            <v-layout align-center justify-center row reverse fill-height>
-                <v-flex>
-                    <v-card>
-                        <v-card-text>ITEM</v-card-text>
-                    </v-card>
-                    <v-card>
-                        <v-card-text>ITEM</v-card-text>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-
         </v-layout>
-
+        <v-layout row justify-center>
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>one</v-card-text>
+                </v-card >
+            </v-flex>
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>two</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>three</v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
     </v-container>
 </template>
 
