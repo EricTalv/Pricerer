@@ -1,33 +1,24 @@
 <template>
-    <v-container fluid>
-        <v-layout>
-            <v-flex xs12>
-                <v-layout align-center justify-center row fill-height>
-                    <v-card width="250px">
+    <v-container >
+        <v-layout wrap align-center justify-center>
+            <v-flex shrink my-5>
+                <v-card flat>
+                    <v-card-title primary-title>
+                        <div>
+                            <div class="headline">
+                                <u>Welcome To Pricerer</u>
+                            </div>
+                            <div>1,000 miles of wonder</div>
+                        </div>
+                    </v-card-title>
+                    <br>
+                    <v-text-field
 
-                        <v-flex headline>Pricerer</v-flex>
-
-                        <v-flex xs12 sm6 md3>
-                            <v-text-field
-                                    label="Outline"
-                                    outline
-                            ></v-text-field>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-text-field
-                                    label="Outline"
-                                    outline
-                            ></v-text-field>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-text-field
-                                    label="Outline"
-                                    outline
-                            ></v-text-field>
-                        </v-flex>
-
-                    </v-card>
-                </v-layout>
+                            outline
+                            label="Your Product"
+                    >
+                    </v-text-field>
+                </v-card>
             </v-flex>
         </v-layout>
     </v-container>
@@ -35,7 +26,5 @@
 
 <script>
 
-export default {
-
-}
+    export default {}
 </script>
