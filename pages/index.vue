@@ -1,7 +1,7 @@
 <template>
-    <v-container fill-height>
-        <v-layout wrap align-center justify-center>
-            <v-flex shrink mb-5>
+    <v-container >
+        <v-layout column align-center justify-center>
+            <v-flex shrink>
                 <v-card flat>
                     <v-card-title primary-title>
                         <div class="text-xs-center">
@@ -17,10 +17,18 @@
                             outline
                             label="Your Product"
                             centered
-                            v-on:click=""
+                            v-on:keyup.enter="hello"
 
                     >
                     </v-text-field>
+                </v-card>
+            </v-flex>
+
+            <v-flex>
+                <v-card>
+                    <v-card-text>
+
+                    </v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -31,11 +39,13 @@
     export default {
         data() {
             return {
-
+                helloTxt: "Good day to you"
             }
         },
         methods: {
-
+            hello: function (event) {
+                alert('Hello' + this.helloTxt)
+            }
         }
     }
 </script>
