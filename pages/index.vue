@@ -66,8 +66,6 @@
             transitionToItems: function () {
                 if (!this.ItemListVisible) {
                      this.ItemListVisible = true
-                } else {
-                    this.ItemListVisible = false
                 }
             }
         },
