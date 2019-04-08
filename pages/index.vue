@@ -17,14 +17,16 @@
                             outline
                             label="Your Product"
                             centered
-                            v-on:keyup.enter="hello"
-
+                            v-on:keyup.enter="transitionToItems"
                     >
                     </v-text-field>
                 </v-card>
             </v-flex>
         </v-layout>
-       <!-- <v-layout align-center justify-center>
+        <v-layout
+                justify-center
+                v-if="showItemList"
+        >
             <v-flex xs2>
                 <v-card>
                     <v-card-text>one</v-card-text>
@@ -40,7 +42,7 @@
                     <v-card-text>three</v-card-text>
                 </v-card>
             </v-flex>
-        </v-layout>-->
+        </v-layout>
     </v-container>
 </template>
 
@@ -48,12 +50,16 @@
     export default {
         data() {
             return {
-                helloTxt: "Good day to you"
+                showItemList: false,
             }
         },
         methods: {
-            hello: function (event) {
-                alert('Hello' + this.helloTxt)
+            transitionToItems: function () {
+                if (!this.showItemList) {
+                     this.showItemList = true
+                } else {
+                    this.showItemList = false
+                }
             }
         }
     }
