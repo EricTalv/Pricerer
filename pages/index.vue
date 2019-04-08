@@ -13,9 +13,10 @@
                     </v-card-title>
                     <br>
                     <v-text-field
-
+                            style="text-align: center"
                             outline
                             label="Your Product"
+                            centered
                     >
                     </v-text-field>
                 </v-card>
