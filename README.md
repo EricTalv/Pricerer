@@ -1,23 +1,22 @@
-# Pricerer
+# pricerer
 
-Product comparing environment
+> My super-duper Nuxt.js project
 
-# Product Concept
+## Build Setup
 
-The idea is to take any product and 
-show its prices across many multiple stores.
+``` bash
+# install dependencies
+$ npm install
 
-# Minimal Viable Product
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-Use `COOP-s` Api to get a Product
-Use Selenium to Fetch an Item from `Prisma`
+# build for production and launch server
+$ npm run build
+$ npm start
 
-<<<<<<< HEAD
-# Design Prototype
+# generate static project
+$ npm run generate
+```
 
-https://marvelapp.com/b766984 
-=======
-# Design Prototype 
-
-https://marvelapp.com/b766984
->>>>>>> db3ac94908698acc91ca52cfa13ba466ec421d08
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
