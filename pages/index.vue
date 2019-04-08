@@ -1,7 +1,7 @@
 <template>
-    <v-container >
+    <v-container fill-height>
         <v-layout wrap align-center justify-center>
-            <v-flex shrink my-5>
+            <v-flex shrink mb-5>
                 <v-card flat>
                     <v-card-title primary-title>
                         <div class="text-xs-center">
