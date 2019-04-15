@@ -4,13 +4,9 @@
             grid-list-md>
 
         <transition-group name="fade" class="wrapper" tag="div">
-
-
-
-
             <v-text-field
                     key="main-content"
-                    style="text-align: center"
+                    style="text-align: center; margin-top: 15vh;"
                     outline
                     label="Your Product"
                     centered
@@ -59,15 +55,11 @@
                             outline
                             label="Your Product"
                             centered
-                            v-on:keyup.enter="transitionToItems"
                     >
                     </v-text-field>
                 </v-card>
             </v-flex>
         </v-layout>
-
-
-
     </v-container>
 </template>
 
