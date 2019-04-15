@@ -3,10 +3,10 @@
             fluid
             grid-list-md
             v-bind:class=""
-            class=""
+            class="et-Margin"
             v-bind="CheckItemListVisibility">
 
-        <transition>
+        <transition name="fade">
             <v-layout justify-center>
                 <v-flex shrink>
                     <v-card flat>
@@ -81,11 +81,13 @@
     }
 </script>
 
-<style scoped>
-    .flip-list-move {
-        transition: transform 1s;
+<style>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
     }
-
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
 
     .et-Margin {
         margin-top: 25vh;
