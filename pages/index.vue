@@ -1,33 +1,43 @@
 <template>
     <v-container
             fluid
-            grid-list-md
-            v-bind:class=""
-
-            v-bind="CheckItemListVisibility">
-
-        <v-btn
-                fixed
-                v-on:click="triggerTransition"
-
-        >TEST BUTTON
-        </v-btn>
+            grid-list-md>
 
         <transition-group name="fade" class="wrapper" tag="div">
 
-            <div v-if="switc" key="dynamic" style="border: 2px solid black">
-                <p>
-                    Text that could be of any length because it comes from a database.
-                </p>
-                <textarea>
-        Textarea that the user can resize
-      </textarea>
-            </div>
 
-            <button key="main-content" type="button" class="btn btn-secondary" style="width:100%"
-                    @click="switc = !switc">
-                <span>Switch</span>
-            </button>
+
+
+            <v-text-field
+                    key="main-content"
+                    style="text-align: center"
+                    outline
+                    label="Your Product"
+                    centered
+                    v-on:keyup.enter="ItemListVisible = !ItemListVisible"
+            >
+            </v-text-field>
+
+
+            <div v-if="ItemListVisible" key="dynamic" style="border: 2px solid black">
+                <v-layout justify-center>
+                    <v-flex xs2>
+                        <v-card>
+                            <v-card-text>one</v-card-text>
+                        </v-card>
+                    </v-flex>
+                    <v-flex xs2>
+                        <v-card>
+                            <v-card-text>two</v-card-text>
+                        </v-card>
+                    </v-flex>
+                    <v-flex xs2>
+                        <v-card>
+                            <v-card-text>three</v-card-text>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </div>
 
         </transition-group>
 
@@ -56,26 +66,7 @@
             </v-flex>
         </v-layout>
 
-        <v-layout
-                justify-center
-                v-if="ItemListVisible"
-        >
-            <v-flex xs2>
-                <v-card>
-                    <v-card-text>one</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs2>
-                <v-card>
-                    <v-card-text>two</v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs2>
-                <v-card>
-                    <v-card-text>three</v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
+
 
     </v-container>
 </template>
@@ -85,7 +76,6 @@
         data() {
             return {
                 ItemListVisible: false,
-                switc: false
             }
         },
         methods: {},
@@ -99,11 +89,11 @@
     .wrapper {
         display: flex;
         flex-direction: column;
+    }
 
-        >* {
-                  transition: all 0.5s;
-                  width: 100%;
-        }
+    .wrapper > * {
+        transition: all 0.5s;
+        width: 100%;
     }
 
     .fade-enter,
