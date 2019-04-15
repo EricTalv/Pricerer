@@ -15,7 +15,7 @@
 
         <transition-group name="fade" class="wrapper" tag="div">
 
-            <div v-if="switc" key="dynamic" style="border: 2px solid black" >
+            <div v-if="switc" key="dynamic" style="border: 2px solid black">
                 <p>
                     Text that could be of any length because it comes from a database.
                 </p>
@@ -24,62 +24,59 @@
       </textarea>
             </div>
 
-            <button key="main-content" type="button" class="btn btn-secondary" style="width:100%" @click="switc = !switc">
+            <button key="main-content" type="button" class="btn btn-secondary" style="width:100%"
+                    @click="switc = !switc">
                 <span>Switch</span>
             </button>
 
         </transition-group>
 
-        <transition-group
-                name="fade"
-                class="wrapper"
-                tag="div"
-        >
-            <v-layout justify-center>
-                <v-flex shrink>
-                    <v-card flat>
-                        <v-card-title primary-title>
-                            <div class="text-xs-center">
-                                <div class="headline">
-                                    <u>Welcome To Pricerer</u>
-                                </div>
-                                <div class="grey--text">Think More, Spend Less</div>
-                            </div>
-                        </v-card-title>
-                        <br>
-                        <v-text-field
-                                style="text-align: center"
-                                outline
-                                label="Your Product"
-                                centered
-                                v-on:keyup.enter="transitionToItems"
-                        >
-                        </v-text-field>
-                    </v-card>
-                </v-flex>
-            </v-layout>
 
-            <v-layout
-                    justify-center
-                    v-if="ItemListVisible"
-            >
-                <v-flex xs2>
-                    <v-card>
-                        <v-card-text>one</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs2>
-                    <v-card>
-                        <v-card-text>two</v-card-text>
-                    </v-card>
-                </v-flex>
-                <v-flex xs2>
-                    <v-card>
-                        <v-card-text>three</v-card-text>
-                    </v-card>
-                </v-flex>
-            </v-layout>
-        </transition-group>
+        <v-layout justify-center>
+            <v-flex shrink>
+                <v-card flat>
+                    <v-card-title primary-title>
+                        <div class="text-xs-center">
+                            <div class="headline">
+                                <u>Welcome To Pricerer</u>
+                            </div>
+                            <div class="grey--text">Think More, Spend Less</div>
+                        </div>
+                    </v-card-title>
+                    <br>
+                    <v-text-field
+                            style="text-align: center"
+                            outline
+                            label="Your Product"
+                            centered
+                            v-on:keyup.enter="transitionToItems"
+                    >
+                    </v-text-field>
+                </v-card>
+            </v-flex>
+        </v-layout>
+
+        <v-layout
+                justify-center
+                v-if="ItemListVisible"
+        >
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>one</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>two</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex xs2>
+                <v-card>
+                    <v-card-text>three</v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
+
     </v-container>
 </template>
 
@@ -87,7 +84,8 @@
     export default {
         data() {
             return {
-                ItemListVisible: false
+                ItemListVisible: false,
+                switc: false
             }
         },
         methods: {},
@@ -101,9 +99,10 @@
     .wrapper {
         display: flex;
         flex-direction: column;
+
         >* {
-            transition: all 0.5s;
-            width: 100%;
+                  transition: all 0.5s;
+                  width: 100%;
         }
     }
 
