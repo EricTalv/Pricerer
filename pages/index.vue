@@ -11,7 +11,9 @@
             v-on:click="triggerTransition"
 
         >TEST BUTTON</v-btn>
-        <transition name="slide-fade">
+        <transition
+                name="et-Transition"
+        >
             <v-layout justify-center v-if="layoutVisible">
                 <v-flex shrink>
                     <v-card flat>
@@ -89,21 +91,18 @@
 </script>
 
 <style>
-    .slide-fade-enter-active {
-        transition: all .3s ease;
+
+    .et-Transitiont-enter {
+
     }
-    .slide-fade-leave-active {
-        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-    }
-    .slide-fade-enter, .slide-fade-leave-to
-        /* .slide-fade-leave-active below version 2.1.8 */ {
-        transform: translateX(10px);
-        opacity: 0;
+
+    .et-Transition-leave {
+
     }
 
     .et-Margin {
         margin-top: 25vh;
 
-        
+
     }
 </style>
