@@ -3,7 +3,7 @@
             fluid
             grid-list-md
             v-bind:class=""
-            class="et-Margin"
+
             v-bind="CheckItemListVisibility">
 
         <v-btn
@@ -108,9 +108,4 @@
 
     }
 
-    .et-Margin {
-        margin-top: 25vh;
-
-
-    }
 </style>
