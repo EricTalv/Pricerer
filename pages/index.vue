@@ -96,6 +96,14 @@
 
     }
 
+    .et-Transitiont-enter-to {
+
+    }
+
+    .et-Transitiont-enter-active {
+
+      }
+
     .et-Transition-leave {
 
     }
