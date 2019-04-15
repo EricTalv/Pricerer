@@ -2,9 +2,11 @@
     <v-container
             fluid
             grid-list-md
-            v-bind:class="{ 'fill-height': fillHeight }"
+            v-bind:class=""
+            class="et-Margin"
             v-bind="CheckItemListVisibility">
-        <transition-group name="flip-list" tag="div">
+
+        <transition>
             <v-layout key="a" align-center justify-center>
                 <v-flex shrink>
                     <v-card flat>
@@ -28,7 +30,8 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </transition-group>
+        </transition>
+
         <v-fade-transition>
             <v-layout
                     justify-center
@@ -59,7 +62,7 @@
         data() {
             return {
                 ItemListVisible: false,
-                fillHeight: true,
+
             }
         },
         methods: {
@@ -72,11 +75,7 @@
 
         computed: {
             CheckItemListVisibility() {
-                if (!this.ItemListVisible) {
-                    this.fillHeight = true
-                } else {
-                    this.fillHeight = false
-                }
+
             }
         }
     }
@@ -85,5 +84,10 @@
 <style scoped>
     .flip-list-move {
         transition: transform 1s;
+    }
+
+
+    .et-Margin {
+        margin-top: 25vh;
     }
 </style>
