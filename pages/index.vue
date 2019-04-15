@@ -3,11 +3,11 @@
             fluid
             grid-list-md
             v-bind:class=""
-            class="et-Margin"
+            class=""
             v-bind="CheckItemListVisibility">
 
         <transition>
-            <v-layout key="a" align-center justify-center>
+            <v-layout justify-center>
                 <v-flex shrink>
                     <v-card flat>
                         <v-card-title primary-title>
