@@ -78,7 +78,9 @@
             },
 
             triggerTransition: function () {
-                this.layoutVisible = !layoutVisible;
+                if (!this.layoutVisible) {
+                    this.layoutVisible = true
+                }
             }
         },
 
