@@ -6,7 +6,12 @@
             class="et-Margin"
             v-bind="CheckItemListVisibility">
 
-        <transition >
+        <v-btn
+            fixed
+            v-on:click=""
+
+        >TEST BUTTON</v-btn>
+        <transition>
             <v-layout justify-center>
                 <v-flex shrink>
                     <v-card flat>
@@ -62,7 +67,7 @@
         data() {
             return {
                 ItemListVisible: false,
-
+                layoutVisible: true,
             }
         },
         methods: {
@@ -70,6 +75,10 @@
                 if (!this.ItemListVisible) {
                      this.ItemListVisible = true
                 }
+            },
+
+            triggerTransition: function () {
+                this.layoutVisible = !layoutVisible;
             }
         },
 
@@ -83,10 +92,10 @@
 
 <style>
     .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s;
+        transition: opacity .5s !important;
     }
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-        opacity: 0;
+        opacity: 0 !important;
     }
 
     .et-Margin {
