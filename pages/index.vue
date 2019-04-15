@@ -6,7 +6,7 @@
             class="et-Margin"
             v-bind="CheckItemListVisibility">
 
-        <transition name="fade">
+        <transition >
             <v-layout justify-center>
                 <v-flex shrink>
                     <v-card flat>
