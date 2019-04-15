@@ -7,10 +7,28 @@
             v-bind="CheckItemListVisibility">
 
         <v-btn
-            fixed
-            v-on:click="triggerTransition"
+                fixed
+                v-on:click="triggerTransition"
 
-        >TEST BUTTON</v-btn>
+        >TEST BUTTON
+        </v-btn>
+
+        <transition-group name="fade" class="wrapper" tag="div">
+
+            <div v-if="switc" key="dynamic" style="border: 2px solid black" >
+                <p>
+                    Text that could be of any length because it comes from a database.
+                </p>
+                <textarea>
+        Textarea that the user can resize
+      </textarea>
+            </div>
+
+            <button key="main-content" type="button" class="btn btn-secondary" style="width:100%" @click="switc = !switc">
+                <span>Switch</span>
+            </button>
+
+        </transition-group>
 
         <transition-group
                 name="fade"
@@ -40,15 +58,15 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </transition-group>
 
             <v-layout
                     justify-center
+                    v-if="ItemListVisible"
             >
                 <v-flex xs2>
                     <v-card>
                         <v-card-text>one</v-card-text>
-                    </v-card >
+                    </v-card>
                 </v-flex>
                 <v-flex xs2>
                     <v-card>
@@ -61,6 +79,7 @@
                     </v-card>
                 </v-flex>
             </v-layout>
+        </transition-group>
     </v-container>
 </template>
 
@@ -71,34 +90,31 @@
                 ItemListVisible: false
             }
         },
-        methods: {
+        methods: {},
 
-        },
-
-        computed: {
-
-        }
+        computed: {}
     }
 </script>
 
 <style>
 
-    .et-transition-enter {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        >* {
+            transition: all 0.5s;
+            width: 100%;
+        }
+    }
+
+    .fade-enter,
+    .fade-leave-active {
         opacity: 0;
-        transform: rotateY(50deg);
+        transform: translateY(-10px);
     }
 
-    .et-transitiont-enter-to {
-        opacity: 1;
-        transform: rotateY(0deg);
-    }
-
-    .et-transitiont-enter-active {
-        transition: opacity, transform 200ms ease-out;
-      }
-
-    .et-transition-leave {
-
+    .fade-leave-active {
+        position: absolute;
     }
 
 </style>
