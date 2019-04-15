@@ -11,10 +11,13 @@
             v-on:click="triggerTransition"
 
         >TEST BUTTON</v-btn>
-        <transition
-                name="et-Transition"
+
+        <transition-group
+                name="fade"
+                class="wrapper"
+                tag="div"
         >
-            <v-layout justify-center v-if="layoutVisible">
+            <v-layout justify-center>
                 <v-flex shrink>
                     <v-card flat>
                         <v-card-title primary-title>
@@ -37,12 +40,10 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </transition>
+        </transition-group>
 
-        <v-fade-transition>
             <v-layout
                     justify-center
-                    v-if="ItemListVisible"
             >
                 <v-flex xs2>
                     <v-card>
@@ -60,7 +61,6 @@
                     </v-card>
                 </v-flex>
             </v-layout>
-        </v-fade-transition>
     </v-container>
 </template>
 
@@ -68,43 +68,36 @@
     export default {
         data() {
             return {
-                ItemListVisible: false,
-                layoutVisible: true,
+                ItemListVisible: false
             }
         },
         methods: {
-            transitionToItems: function () {
-                this.itemListVisible = !this.itemListVisible;
-            },
 
-            triggerTransition: function () {
-                this.layoutVisible = !this.layoutVisible;
-            }
         },
 
         computed: {
-            CheckItemListVisibility() {
 
-            }
         }
     }
 </script>
 
 <style>
 
-    .et-Transitiont-enter {
-
+    .et-transition-enter {
+        opacity: 0;
+        transform: rotateY(50deg);
     }
 
-    .et-Transitiont-enter-to {
-
+    .et-transitiont-enter-to {
+        opacity: 1;
+        transform: rotateY(0deg);
     }
 
-    .et-Transitiont-enter-active {
-
+    .et-transitiont-enter-active {
+        transition: opacity, transform 200ms ease-out;
       }
 
-    .et-Transition-leave {
+    .et-transition-leave {
 
     }
 
