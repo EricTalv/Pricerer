@@ -8,11 +8,11 @@
 
         <v-btn
             fixed
-            v-on:click=""
+            v-on:click="triggerTransition"
 
         >TEST BUTTON</v-btn>
-        <transition>
-            <v-layout justify-center>
+        <transition name="fade">
+            <v-layout justify-center v-if="layoutVisible">
                 <v-flex shrink>
                     <v-card flat>
                         <v-card-title primary-title>
