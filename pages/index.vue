@@ -72,15 +72,11 @@
         },
         methods: {
             transitionToItems: function () {
-                if (!this.ItemListVisible) {
-                     this.ItemListVisible = true
-                }
+                this.itemListVisible = !this.itemListVisible;
             },
 
             triggerTransition: function () {
-                if (!this.layoutVisible) {
-                    this.layoutVisible = true
-                }
+                this.layoutVisible = !this.layoutVisible;
             }
         },
 
