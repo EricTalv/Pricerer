@@ -11,7 +11,7 @@
             v-on:click="triggerTransition"
 
         >TEST BUTTON</v-btn>
-        <transition name="fade">
+        <transition name="move">
             <v-layout justify-center v-if="layoutVisible">
                 <v-flex shrink>
                     <v-card flat>
@@ -90,10 +90,10 @@
 
 <style>
     .fade-enter-active, .fade-leave-active {
-        transition: opacity .5s !important;
+        transition: margin-top .10s ;
     }
     .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-        opacity: 0 !important;
+        margin-top: 0;
     }
 
     .et-Margin {
