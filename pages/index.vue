@@ -3,116 +3,52 @@
         <v-container
                 fluid
                 grid-list-md>
-
-
-            <v-layout wrap align-center justify-center>
-
-
-                <v-flex xs12 text-xs-center>
+            <v-layout align-center justify-center wrap>
+                <v-flex lg12 md12 sm12 text-xs-center xl12 xs12>
 
                     <div class="headline">
                         <u>Welcome To Pricerer</u>
                         <div class="subheading">Think More, Spend Less</div>
                     </div>
 
-                    <v-text-field
-                            centered
-                            key="main-content"
-                            label="Your Product"
-                            outline
-                            style="text-align: center;"
-                    >
-                    </v-text-field>
+                    <v-flex lg12 mx-auto sm10 xs8>
+                        <v-text-field
+                                centered
+                                key="main-content"
+                                label="Your Product"
+                                outline
+                                style="text-align: center;"
+                                v-on:keyup.enter="ItemListVisible = !ItemListVisible"
+                        >
+                        </v-text-field>
+                    </v-flex>
                 </v-flex>
 
-                <v-flex xs12>
+                <div key="dynamic" style="border: 2px solid rgba(0,0,0,0.54); border-radius: 4px; "
+                     v-if="ItemListVisible">
+                    <v-container fluid grid-list-sm>
+                        <v-layout wrap>
+                            <product-card></product-card>
 
-                    <v-container grid-list-sm>
-                        <v-layout>
-                            <v-flex>
-                                <v-card>
-                                    <v-card-text>one</v-card-text>
-                                </v-card>
-                            </v-flex>
-                            <v-flex>
-                                <v-card>
-                                    <v-card-text>two</v-card-text>
-                                </v-card>
-                            </v-flex>
-                            <v-flex>
-                                <v-card>
-                                    <v-card-text>three</v-card-text>
-                                </v-card>
-                            </v-flex>
                         </v-layout>
                     </v-container>
-                </v-flex>
-
-
+                </div>
             </v-layout>
-
-
-            <!--  <v-layout justify-center>
-                  <v-flex shrink>
-
-                          <v-card-title primary-title>
-                              <div class="text-xs-center">
-                                  <div class="headline">
-                                      <u>Welcome To Pricerer</u>
-                                  </div>
-                                  <div class="grey&#45;&#45;text">Think More, Spend Less</div>
-                              </div>
-                          </v-card-title>
-
-                          <transition-group class="wrapper" name="fade" tag="div">
-
-                              <v-text-field
-                                      centered
-                                      key="main-content"
-                                      label="Your Product"
-                                      outline
-                                      style="text-align: center;"
-                                      v-on:keyup.enter="ItemListVisible = !ItemListVisible"
-                              >
-                              </v-text-field>
-
-
-                              <div key="dynamic" style="border: 2px solid rgba(0,0,0,0.54); border-radius: 4px; " v-if="ItemListVisible">
-
-                                  <v-container grid-list-sm>
-                                      <v-layout xs12 sm12 md12 lg12 xl12 justify-center row wrap>
-                                          <v-flex>
-                                              <v-card>
-                                                  <v-card-text>
-                                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aut distinctio, eligendi fuga in incidunt laborum magnam nostrum possimus voluptates!
-                                                  </v-card-text>
-                                              </v-card>
-                                          </v-flex>
-                                          <v-flex>
-                                              <v-card>
-                                                  <v- card-text>two</v-card-text>
-                                              </v-card>
-                                          </v-flex>
-                                          <v-flex>
-                                              <v-card>
-                                                  <v-card-text>three</v-card-text>
-                                              </v-card>
-                                          </v-flex>
-                                      </v-layout>
-                                  </v-container>
-
-                              </div>
-
-                          </transition-group>
-
-                  </v-flex>
-              </v-layout>-->
         </v-container>
     </v-app>
 </template>
 
+<!--https://35.205.172.130/getAll-->
+
+
 <script>
+
+
+    import ProductCard from "../components/ProductCard";
+
     export default {
+        name: "index",
+        components: {ProductCard},
         data() {
             return {
                 ItemListVisible: false,
