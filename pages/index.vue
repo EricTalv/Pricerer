@@ -5,14 +5,14 @@
                 grid-list-md>
 
 
-            <v-layout align-center justify-center>
+            <v-layout wrap align-center justify-center>
 
 
-                <v-flex text-xs-center>
+                <v-flex xs12 text-xs-center>
 
                     <div class="headline">
                         <u>Welcome To Pricerer</u>
-                        <v-subheader>Think</v-subheader>
+                        <div class="subheading">Think More, Spend Less</div>
                     </div>
 
                     <v-text-field
@@ -23,6 +23,29 @@
                             style="text-align: center;"
                     >
                     </v-text-field>
+                </v-flex>
+
+                <v-flex xs12>
+
+                    <v-container grid-list-sm>
+                        <v-layout>
+                            <v-flex>
+                                <v-card>
+                                    <v-card-text>one</v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-flex>
+                                <v-card>
+                                    <v-card-text>two</v-card-text>
+                                </v-card>
+                            </v-flex>
+                            <v-flex>
+                                <v-card>
+                                    <v-card-text>three</v-card-text>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
                 </v-flex>
 
 
