@@ -54,9 +54,24 @@
                 ItemListVisible: false,
             }
         },
-        methods: {},
 
-        computed: {}
+        created() {
+            if (this.$store.dispatch('retrieveData')){
+                console.log('success')
+            } else {
+
+                console.log('fail')
+            }
+
+        },
+
+        methods: {
+
+        },
+
+        computed: {
+
+        }
     }
 </script>
 
