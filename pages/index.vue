@@ -67,6 +67,7 @@
         created() {
 
             this.$store.dispatch('dataRetriever/DataFetcher');
+            this.$store.dispatch('dataRetriever/DataPieceFetcher');
 
         },
 
