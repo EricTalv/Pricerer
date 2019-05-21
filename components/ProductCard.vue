@@ -3,10 +3,10 @@
         <v-card>
             <v-card-title>
                 <div class="headline">
-                    Product Name
+                    Product {{ title }}
                 </div>
             </v-card-title>
-            <v-card-text>Product Info</v-card-text>
+            <v-card-text>Product {{ data }}</v-card-text>
         </v-card>
     </v-flex>
 
@@ -14,7 +14,8 @@
 
 <script>
     export default {
-        name: "ProductCard"
+        name: "ProductCard",
+        props: ['title', 'data']
     }
 </script>
 

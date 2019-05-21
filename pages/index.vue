@@ -18,7 +18,7 @@
                                 label="Your Product"
                                 outline
                                 style="text-align: center;"
-                                v-on:keyup.enter="ItemListVisible = !ItemListVisible"
+                                v-on:keyup.enter="RetrieveData()"
                         >
                         </v-text-field>
                     </v-flex>
@@ -28,7 +28,11 @@
                      v-if="ItemListVisible">
                     <v-container fluid grid-list-sm>
                         <v-layout wrap>
-                            <product-card></product-card>
+
+                            <product-card
+                                :title="ProductData.name"
+                                :data="ProductData.info"
+                            ></product-card>
 
                         </v-layout>
                     </v-container>
@@ -51,27 +55,30 @@
         components: {ProductCard},
         data() {
             return {
-                ItemListVisible: false,
+                ItemListVisible: true,
+
+                ProductData: {
+                    name: '',
+                    info: ''
+                }
             }
         },
 
         created() {
-            if (this.$store.dispatch('retrieveData')){
-                console.log('success')
-            } else {
 
-                console.log('fail')
-            }
+            this.$store.dispatch('dataRetriever/DataFetcher');
 
         },
 
         methods: {
 
+            RetrieveData(){
+
+            }
+
         },
 
-        computed: {
-
-        }
+        computed: {}
     }
 </script>
 
