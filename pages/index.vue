@@ -11,7 +11,7 @@
                         <div class="subheading">Think More, Spend Less</div>
                     </div>
 
-                    <v-flex lg12 mx-auto sm10 xs8>
+                    <v-flex sm10 xs8 lg8 mx-auto>
                         <v-text-field
                                 centered
                                 key="main-content"

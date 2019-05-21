@@ -23,7 +23,7 @@
                                 <v-flex xs5>
                                     <v-card>
                                         <v-img
-                                                src=`https://{{content.productimage_url}}`
+                                                :src="'https://'+content.productimage_url"
                                                 height="250px"
                                         ></v-img>
                                     </v-card>
