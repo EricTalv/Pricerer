@@ -1,12 +1,12 @@
 export const state = () => ({
-    data: {}
+    products: []
 });
 
 
 export const mutations = {
 
     GET_DATA(state, value) {
-        state.data = value
+        state.products = value
     }
 
 };

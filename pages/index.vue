@@ -18,7 +18,7 @@
                                 label="Your Product"
                                 outline
                                 style="text-align: center;"
-                                v-on:keyup.enter="RetrieveData()"
+                                v-on:keyup.enter="RetrievedData"
                         >
                         </v-text-field>
                     </v-flex>
@@ -30,8 +30,11 @@
                         <v-layout wrap>
 
                             <product-card
-                                :title="ProductData.name"
-                                :data="ProductData.info"
+
+                                v-for="item in RetrievedData"
+                                :content="item"
+                                :key="item.id"
+
                             ></product-card>
 
                         </v-layout>
@@ -57,10 +60,7 @@
             return {
                 ItemListVisible: true,
 
-                ProductData: {
-                    name: '',
-                    info: ''
-                }
+
             }
         },
 
@@ -72,13 +72,18 @@
 
         methods: {
 
-            RetrieveData(){
 
-            }
 
         },
 
-        computed: {}
+        computed: {
+
+            RetrievedData(){
+
+                return this.$store.state.dataRetriever.products
+            }
+
+        }
     }
 </script>
 
