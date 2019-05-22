@@ -11,19 +11,25 @@
                         <div class="subheading">Think More, Spend Less</div>
                     </div>
 
-                    <v-flex sm8 xs8 lg8 mx-auto>
+                    <v-flex lg8 mx-auto sm8 xs8>
                         <v-text-field
                                 centered
                                 key="main-content"
                                 label="Your Product"
                                 outline
                                 style="text-align: center;"
-                                v-on:keyup.enter="sendQuery"
                                 v-model="userInput"
+                                v-on:keyup.enter="sendQuery"
                         >
                         </v-text-field>
                     </v-flex>
                 </v-flex>
+
+                <div class="et-Footer">
+                    <div
+                            class="loader"
+                            v-if="this.$store.state.dataRetriever.loading"></div>
+                </div>
 
                 <div key="dynamic" style="border: 2px solid rgba(0,0,0,0.54); border-radius: 4px; "
                      v-if="products.length">
@@ -32,9 +38,9 @@
 
                             <product-card
 
-                                v-for="item in products"
-                                :content="item"
-                                :key="item.id"
+                                    :content="item"
+                                    :key="item.id"
+                                    v-for="item in products"
 
                             ></product-card>
 
@@ -56,21 +62,16 @@
         name: "index",
         components: {ProductCard},
         data() {
-            return {
-                ItemListVisible: true,
-                loading: true,
-            }
+            return {}
         },
 
         created() {
-
-
-
+            console.log(this.$store.state.dataRetriever.loading)
         },
 
         methods: {
 
-            sendQuery(){
+            sendQuery() {
 
                 this.$store.dispatch('dataRetriever/DataSearcher');
             }
@@ -82,10 +83,10 @@
                 return this.$store.state.dataRetriever.products;
             },
             userInput: {
-                get () {
+                get() {
                     return this.$store.state.dataRetriever.data
                 },
-                set (value) {
+                set(value) {
                     this.$store.commit('dataRetriever/SET_DATA', value)
                 }
             }
@@ -96,24 +97,23 @@
 
 <style>
 
-    .wrapper {
-        display: flex;
-        flex-direction: column;
+    .loader {
+        margin: 5% auto;
+        border: 10px solid #f3f3f3; /* Light grey */
+        border-top: 10px solid grey; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 0.5s linear infinite;
     }
 
-    .wrapper > * {
-        transition: all 0.5s;
-        width: 100%;
-    }
-
-    .fade-enter,
-    .fade-leave-active {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    .fade-leave-active {
-        position: absolute;
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
 </style>

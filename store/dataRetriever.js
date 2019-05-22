@@ -11,6 +11,10 @@ export const mutations = {
         state.products = value
     },
 
+    SET_DATA(state, value) {
+        state.data = value
+    },
+
     TOGGLE_LOADING(state) {
         state.loading = !state.loading;
     },
@@ -26,14 +30,14 @@ export const actions = {
             params: {
                 name: context.state.data
             }
-        }, context.commit('TOGGLE_LOADING'))
+        })
         // Upon success
             .then((resp) => {
                 // Commit data and inject it to state
                 console.log('Success')
                 console.log('Data sent: ', context.state.data)
                 context.commit('SET_PRODUCT', resp.data)
-
+                context.commit('TOGGLE_LOADING')
             })
             .catch((err) => {
                 console.log('Error', err)
