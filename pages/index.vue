@@ -11,28 +11,28 @@
                         <div class="subheading">Think More, Spend Less</div>
                     </div>
 
-                    <v-flex sm10 xs8 lg8 mx-auto>
+                    <v-flex sm8 xs8 lg8 mx-auto>
                         <v-text-field
                                 centered
                                 key="main-content"
                                 label="Your Product"
                                 outline
                                 style="text-align: center;"
-                                v-on:keyup.enter="SendQuery"
-                                :value="message"
+                                v-on:keyup.enter="sendQuery"
+                                v-model="userInput"
                         >
                         </v-text-field>
                     </v-flex>
                 </v-flex>
 
                 <div key="dynamic" style="border: 2px solid rgba(0,0,0,0.54); border-radius: 4px; "
-                     v-if="ItemListVisible">
+                     v-if="products.length">
                     <v-container fluid grid-list-sm>
                         <v-layout wrap>
 
                             <product-card
 
-                                v-for="item in RetrievedData"
+                                v-for="item in products"
                                 :content="item"
                                 :key="item.id"
 
@@ -46,8 +46,6 @@
     </v-app>
 </template>
 
-<!--https://35.205.172.130/getAll-->
-
 
 <script>
 
@@ -59,29 +57,38 @@
         components: {ProductCard},
         data() {
             return {
-                ItemListVisible: false,
-
-
+                ItemListVisible: true,
+                loading: true,
             }
         },
 
         created() {
 
-          //  this.$store.dispatch('dataRetriever/DataFetcher');
+
 
         },
 
         methods: {
 
-            SendQuery(e){
+            sendQuery(){
 
-                this.$store.dispatch('dataRetriever/DataSearcher', e.target.value);
+                this.$store.dispatch('dataRetriever/DataSearcher');
             }
 
         },
 
         computed: {
-
+            products() {
+                return this.$store.state.dataRetriever.products;
+            },
+            userInput: {
+                get () {
+                    return this.$store.state.dataRetriever.data
+                },
+                set (value) {
+                    this.$store.commit('dataRetriever/SET_DATA', value)
+                }
+            }
 
         }
     }

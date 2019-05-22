@@ -9,7 +9,7 @@
             >
                 <v-layout row wrap>
                     <v-flex xs12>
-                        <v-card  style="width: 400px">
+                        <v-card  style="width: 300px">
                             <v-layout row>
                                 <v-flex xs6>
                                     <v-card-title primary-title>

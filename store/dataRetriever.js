@@ -1,6 +1,6 @@
 export const state = () => ({
     products: [],
-    data: [],
+    data: '',
     loading: false,
 });
 
@@ -11,43 +11,28 @@ export const mutations = {
         state.products = value
     },
 
-    SET_DATA(state, value) {
-        state.data = value
-    },
-
     TOGGLE_LOADING(state) {
         state.loading = !state.loading;
     },
 };
 
 export const actions = {
-    DataFetcher(context) {
-        // Send Axios Get call to url
-        this.$axios.get('https://35.205.172.130/getAll')
-        // Upon success
-            .then((resp) => {
-                // Commit data and inject it to state
-                if (context.commit('SET_PRODUCT_DATA', resp.data)) {
-                    console.log('Success')
-                }
-            })
-            .catch((err) => {
-                console.log('Error', err)
-            })
-    },
 
-    DataSearcher(context, data) {
+    DataSearcher(context) {
+
+        context.commit('TOGGLE_LOADING')
         this.$axios.get('https://35.205.172.130/searchItem', {
+            // Set our search query
             params: {
-                name: data
+                name: context.state.data
             }
-        })
+        }, context.commit('TOGGLE_LOADING'))
         // Upon success
             .then((resp) => {
                 // Commit data and inject it to state
-
-                console.log('Success ', resp)
-                console.log('Data sent: ', data)
+                console.log('Success')
+                console.log('Data sent: ', context.state.data)
+                context.commit('SET_PRODUCT', resp.data)
 
             })
             .catch((err) => {
