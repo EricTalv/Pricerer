@@ -47,6 +47,14 @@
                         </v-layout>
                     </v-container>
                 </div>
+                <div key="dynamic" style="border: 2px solid rgba(0,0,0,0.54); border-radius: 4px; "
+                     v-if="noProd">
+                    <v-container fluid grid-list-sm>
+                        <v-layout wrap>
+                            <h1>We do not have any {{this.info}}</h1>
+                        </v-layout>
+                    </v-container>
+                </div>
             </v-layout>
         </v-container>
     </v-app>
@@ -62,7 +70,11 @@
         name: "index",
         components: {ProductCard},
         data() {
-            return {}
+            return {
+                productsExist: false,
+                info:'',
+
+            }
         },
 
         created() {
@@ -74,6 +86,7 @@
             sendQuery() {
 
                 this.$store.dispatch('dataRetriever/DataSearcher');
+
             }
 
         },
@@ -87,8 +100,16 @@
                     return this.$store.state.dataRetriever.data
                 },
                 set(value) {
-                    this.$store.commit('dataRetriever/SET_DATA', value)
+                    if(value){
+                        this.info=value;
+                        this.$store.dispatch('dataRetriever/setData', value)
+                    }
+
                 }
+            },
+            noProd(){
+                console.log(this.$store.state.dataRetriever.noProducts);
+                return this.$store.state.dataRetriever.noProducts
             }
 
         }
