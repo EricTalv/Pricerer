@@ -1,56 +1,58 @@
 export const state = () => ({
     products: [],
-    data: []
+    data: [],
+    loading: false,
 });
 
 
 export const mutations = {
 
-    GET_DATA(state, value) {
+    SET_PRODUCT(state, value) {
         state.products = value
     },
 
-    DATA_PIECE(state, value) {
+    SET_DATA(state, value) {
         state.data = value
-    }
+    },
 
+    TOGGLE_LOADING(state) {
+        state.loading = !state.loading;
+    },
 };
 
 export const actions = {
     DataFetcher(context) {
-      /*  // Send Axios Get call to url
+        // Send Axios Get call to url
         this.$axios.get('https://35.205.172.130/getAll')
-            // Upon success
+        // Upon success
             .then((resp) => {
                 // Commit data and inject it to state
-                if (context.commit('GET_DATA', resp.data)){
+                if (context.commit('SET_PRODUCT_DATA', resp.data)) {
                     console.log('Success')
                 }
-
             })
             .catch((err) => {
                 console.log('Error', err)
-            })*/
+            })
+    },
 
-        this.$axios.get('https://35.205.172.130/get', { params: {
-                name: "1 Reserva Ribera Del Duero Vinedos 0.75L punane vein"
+    DataSearcher(context, data) {
+        this.$axios.get('https://35.205.172.130/searchItem', {
+            params: {
+                name: data
             }
         })
         // Upon success
             .then((resp) => {
                 // Commit data and inject it to state
-                console.log('Success:', resp.request)
+
+                console.log('Success ', resp)
+                console.log('Data sent: ', data)
 
             })
             .catch((err) => {
                 console.log('Error', err)
             })
-
-
-    },
-
-    DataPieceFetcher(context) {
-        // Send Axios Get call to url
 
     }
 };

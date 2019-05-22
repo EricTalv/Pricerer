@@ -18,7 +18,8 @@
                                 label="Your Product"
                                 outline
                                 style="text-align: center;"
-                                v-on:keyup.enter="RetrievedData"
+                                v-on:keyup.enter="SendQuery"
+                                :value="message"
                         >
                         </v-text-field>
                     </v-flex>
@@ -58,7 +59,7 @@
         components: {ProductCard},
         data() {
             return {
-                ItemListVisible: true,
+                ItemListVisible: false,
 
 
             }
@@ -66,23 +67,21 @@
 
         created() {
 
-            this.$store.dispatch('dataRetriever/DataFetcher');
-            this.$store.dispatch('dataRetriever/DataPieceFetcher');
+          //  this.$store.dispatch('dataRetriever/DataFetcher');
 
         },
 
         methods: {
 
+            SendQuery(e){
 
+                this.$store.dispatch('dataRetriever/DataSearcher', e.target.value);
+            }
 
         },
 
         computed: {
 
-            RetrievedData(){
-
-                return this.$store.state.dataRetriever.products
-            }
 
         }
     }
