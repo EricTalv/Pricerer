@@ -1,4 +1,5 @@
 export const state = () => ({
+    default_products: {},
     products: [],
     data: '',
     loading: false,
@@ -7,6 +8,10 @@ export const state = () => ({
 
 
 export const mutations = {
+
+    SET_DEFAULT_PRODUCTS(state, value) {
+        state.default_products = value
+    },
 
     SET_PRODUCT(state, value) {
         state.products = value
@@ -27,7 +32,7 @@ export const mutations = {
 
 export const actions = {
 
-    DataSearcher(context) {
+    dataSearcher(context) {
 
         context.commit('TOGGLE_LOADING')
         this.$axios.get('https://35.205.172.130/searchItem', {
@@ -39,14 +44,12 @@ export const actions = {
         // Upon success
             .then((resp) => {
                 // Commit data and inject it to state
-                console.log( resp.data);
                 if(resp.data.length <= 0){
                     context.commit('SET_NO_PRODUCTS', true)
 
                 } else {
                     context.commit('SET_NO_PRODUCTS', false)
                 }
-                console.log(context.state.noProducts);
                 console.log('Data sent: ', context.state.data);
                 context.commit('SET_PRODUCT', resp.data);
                 context.commit('TOGGLE_LOADING')
@@ -56,8 +59,31 @@ export const actions = {
             })
 
     },
+
     setData(context,data){
         context.commit('SET_DATA',data);
         context.commit('SET_NO_PRODUCTS', false);
+    },
+
+    getDefaultPage(context, data){
+        context.commit('TOGGLE_LOADING')
+        this.$axios.get('https://35.205.172.130/getPage', {
+            // Set our search query
+            params: {
+                page: data.page
+            }
+        })
+        // Upon success
+            .then((resp) => {
+                // Commit data and inject it to state
+                context.commit('SET_DEFAULT_PRODUCTS', resp.data);
+                context.commit('TOGGLE_LOADING')
+            })
+            .catch((err) => {
+                console.log('Error', err)
+            })
     }
+
+
+
 };
