@@ -70,19 +70,16 @@ Postman ofcourse was used for craftin API's
 
 ## Conclusion
 
-The project was a good success in the sense that it introduced more to a 
-team workflow kind of environment and also let us see the world of API's.
+Our idea was ambitious, far too ambitious for us to 
+fully finish given the timeline.
 
-The product itself ofcourse Works but not in its entirety, since the 
-scope of the product had become so much bigger thus our timeline started to get 
-cramped even more so thus thanks to time and team size we'd fall short
-from our initial product idea.
+That said, we did learn valuable lessons regarding API's,
+agility in workflow and teamwork.
 
 ## Personal
 
-My personal experitse would lie in workflow management and also 
-frontend design and coding, yeah its multiple things on one person but thats
-the budget cuts we had to do at the time, due to the small team size. 
+My personal experitse in this project would lie in workflow management,
+project documentation, front-end development and design.
 
 Overall it was a great time developing with other great minds.
 
